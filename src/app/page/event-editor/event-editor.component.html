@@ -1,0 +1,61 @@
+<div *ngIf="event$ | async as event" class="row">
+  <div class="col-6 offset-3">
+    <form #eventForm="ngForm" (ngSubmit)="onUpdate(eventForm)">
+      <label>Name</label>
+      <input
+        [(ngModel)]="event.name"
+        id="event-name"
+        type="text"
+        class="form-control"
+        name="name"
+        required
+        pattern="^.{8,}$"
+      />
+      <div [hidden]="eventForm.controls['name']?.valid" class="error-message">
+        At least 8 chars required!
+      </div>
+
+      <label>Date</label>
+      <input
+      [(ngModel)]="event.date"
+      id="event-date"
+      type="text"
+      class="form-control"
+      name="date"
+      required
+      />
+      <div [hidden]="eventForm.controls['date']?.valid" class="error-message">
+        At least 1 char required!
+      </div>
+
+      <label>Time</label>
+      <input
+      [(ngModel)]="event.time"
+      id="event-time"
+      type="text"
+      class="form-control"
+      name="time"
+      required
+      />
+      <div [hidden]="eventForm.controls['time']?.valid" class="error-message">
+        At least 1 char required!
+      </div>
+
+      <label>Location</label>
+      <input
+      [(ngModel)]="event.location"
+      id="event-location"
+      type="text"
+      class="form-control"
+      name="location"
+      required
+      />
+      <div [hidden]="eventForm.controls['location']?.valid" class="error-message">
+        At least 1 char required!
+      </div>
+      <button [disabled]="eventForm.invalid">
+        Save
+      </button>
+    </form>
+  </div>
+</div>

@@ -8,7 +8,7 @@
         <th>Date</th>
         <th>Time</th>
         <th>Address</th>
-        <th></th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +18,9 @@
         <td>{{event.time}}</td>
         <td>{{event.location}}</td>
         <td>
-
+          <button (click)="onEdit(event)">
+            Edit
+          </button>
         </td>
       </tr>
     </tbody>
